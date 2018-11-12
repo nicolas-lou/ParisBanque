@@ -11,7 +11,7 @@ public class CompteManager {
 		account.setIdCompte(Checking.idCompte());
 		account.setOverdraft(Checking.decouvert());
 		account.setSolde(Checking.solde());
-		account.setUser(Checking.user(new Agence().getClients()));		
+		account.setUser( Checking.user(account.getCodeAgence()) );		
 		return account;
 	}
 	

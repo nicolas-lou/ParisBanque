@@ -5,6 +5,20 @@ import parisBanque.controle.*;
 import java.util.*;
 
 public class Interface {
-
-	ArrayList<Agence> agences = new ArrayList<Agence>();
+   Siege Parisbanque = new Siege();
+   
+   public static void main(String[] args) {
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+   }
+   
+   
+   
+   
+	
 }

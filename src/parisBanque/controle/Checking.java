@@ -145,8 +145,15 @@ public class Checking {
 		return soldeDouble;	
 	}
 	
-	public static Client user(ArrayList<Client> agence) {
-		Client user = null;
+	public static String user(int idAgence) {
+		ArrayList<Client> agence =null;
+		
+		for(Agence ag : Siege.agences ) {
+			if(ag.getCodeAgence() == idAgence) {
+				agence = ag.getClients();
+				break;
+			}	
+		}		
 		String id;
 		Scanner in =  new Scanner(System.in);
 		do {
@@ -155,11 +162,11 @@ public class Checking {
 		}while( id.matches("([A-Z]{2}[0-9]{6}") );
 		for(Client a : agence) {
 			if(a.getIdClient().equalsIgnoreCase(id)) {
-				user = a;
+				id = a.getIdClient();
 				break;
 			}
 		}		
-		return user;	
+		return id;	
 	}
 	
 	// fin checking compte

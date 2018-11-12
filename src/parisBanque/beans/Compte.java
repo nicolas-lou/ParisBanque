@@ -3,7 +3,7 @@ package parisBanque.beans;
 public class Compte {
 	String idCompte;
 	int codeAgence;
-	Client user ;
+	String user ;
 	double solde;
 	boolean overdraft;
 	
@@ -22,10 +22,10 @@ public class Compte {
 	public void setCodeAgence(int codeAgence) {
 		this.codeAgence = codeAgence;
 	}
-	public Client getUser() {
+	public String getUser() {
 		return user;
 	}
-	public void setUser(Client user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 	public double getSolde() {
