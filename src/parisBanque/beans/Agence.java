@@ -35,10 +35,10 @@ public class Agence {
 	public void setAdresseAgence(Adresse adresseAgence) {
 		this.adresseAgence = adresseAgence;
 	}
-	public ArrayList getClients() {
+	public ArrayList<Client> getClients() {
 		return clients;
 	}
-	public void setClients(ArrayList clients) {
+	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
 	}
 	

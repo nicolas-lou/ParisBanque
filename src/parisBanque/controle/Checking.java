@@ -4,7 +4,7 @@ import parisBanque.beans.*;
 import parisBanque.affichage.*;
 import java.util.*;
 
-import fr.afpa.formation.caisse.Produit;
+
 
 public class Checking {
 	
@@ -159,11 +159,10 @@ public class Checking {
 				break;
 			}
 		}		
-		return user;
-		
-		
-		
+		return user;	
 	}
+	
+	// fin checking compte
 		
 		
 }
