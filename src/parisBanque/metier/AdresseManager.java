@@ -8,10 +8,10 @@ public class AdresseManager {
 
 	public static Adresse creerAdresse() {
 		Adresse ad = new Adresse();
-		ad.setNumeroRue(checkAdrNum());
-		ad.setRue(checkRue());
-		ad.setVille(checkVille());
-		ad.setZip(checkZip());
+		ad.setNumeroRue(Checking.adrNum());
+		ad.setRue(Checking.rue());
+		ad.setVille(Checking.ville());
+		ad.setZip(Checking.zip());
 		return ad;
 	}
 }

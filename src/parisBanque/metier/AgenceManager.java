@@ -8,10 +8,9 @@ public class AgenceManager {
 	public static Agence creerAgence() {
 		Agence adrAg = new Agence();
 		adrAg.setAdresseAgence( AdresseManager.creerAdresse() );
-		adrAg.setCodeAgence(checkCodeAgence());
-		adrAg.setNomAgence(checkNom());	
-		return adrAg;
-		
+		adrAg.setCodeAgence(Checking.codeAgence());
+		adrAg.setNomAgence(Checking.nom());	
+		return adrAg;		
 		
 	}
 	

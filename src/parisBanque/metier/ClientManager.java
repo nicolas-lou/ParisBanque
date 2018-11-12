@@ -7,10 +7,10 @@ public class ClientManager {
 	
 	public static Client creerClient() {
 		Client cli = new Client();
-		cli.setIdClient(checkIdClient());
-		cli.setNom(checkNom());
-		cli.setPrenom(checkPrenom());
-		cli.setEmail(checkEmail());
+		cli.setIdClient(Checking.idClient());
+		cli.setNom(Checking.nom());
+		cli.setPrenom(Checking.prenom());
+		cli.setEmail(Checking.email());
 		
 	}
 
