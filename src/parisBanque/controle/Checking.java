@@ -4,6 +4,8 @@ import parisBanque.beans.*;
 import parisBanque.affichage.*;
 import java.util.*;
 
+import fr.afpa.formation.caisse.Produit;
+
 public class Checking {
 	
 	// début checking AdesseManager
@@ -56,17 +58,18 @@ public class Checking {
 		Scanner in =  new Scanner(System.in);
 		String code= "";
 		do {
-			System.out.println("Numéro de rue: ");
+			System.out.println("Code Agence: ");
 			code = in.nextLine();
 		}while( code.matches("([0-9][0-9][0-9])") );
 		int codeInt = Integer.parseInt(code);
 		return codeInt;	
 	}
+	
 	public static String nom() {
 		Scanner in =  new Scanner(System.in);
 		String nom= "";
 		do {
-			System.out.println("Nom de rue: ");
+			System.out.println("Nom : ");
 			nom = in.nextLine();
 		}while( nom.matches("[a-zA-Z]+") );		
 		return nom;
@@ -74,10 +77,95 @@ public class Checking {
 	// fin checking AgenceManager
 	// début checking ClientManager
 	
-	public static int idClient() {
+	public static String idClient() {
+		Scanner in =  new Scanner(System.in);
+		String idClient= "";
+		do {
+			System.out.println("ID client: ");
+			idClient = in.nextLine();
+		}while( idClient.matches("([A-Z]{2}[0-9]{6}") );		
+		return idClient;		
+	}
+	
+	public static String prenom() {
+		Scanner in =  new Scanner(System.in);
+		String prenom= "";
+		do {
+			System.out.println("Prenom: ");
+			prenom = in.nextLine();
+		}while( prenom.matches("[a-zA-Z]+") );		
+		return prenom;
+	}
+	
+	public static String email() {
+		Scanner in =  new Scanner(System.in);
+		String email= "";
+		do {
+			System.out.println("E-mail: ");
+			email = in.nextLine();
+		}while( email.matches("[a-zA-Z]+") );		
+		return email;
+	}
+	
+	// fin checking ClientManager
+	// début checking CompteManager
+	
+	public static String idCompte() {
+		Scanner in =  new Scanner(System.in);
+		String idCompte= "";
+		do {
+			System.out.println("ID du compte: ");
+			idCompte = in.nextLine();
+		}while( idCompte.matches("[0-9]{11}") );		
+		return idCompte;
+	}
+	
+	public static boolean decouvert(){
+		Scanner in =  new Scanner(System.in);
+		String reponse= "";
+		boolean decouvert = false;
+		do {
+			System.out.println("Ligne de credit ? (O/N): ");
+			reponse = in.nextLine();
+		}while( reponse.matches("O|N") );
+		if(reponse.equalsIgnoreCase("O")) {
+			decouvert = true;
+		}
+		return decouvert;
+	}
+	
+	public static double solde() {
+		Scanner in =  new Scanner(System.in);
+		String solde= "";
+		do {
+			System.out.println("Code Agence: ");
+			solde = in.nextLine();
+		}while( solde.matches("(([0-9]+)\\.{0,1}[0-9]{0,3)") );
+		int soldeDouble = Integer.parseInt(solde);
+		return soldeDouble;	
+	}
+	
+	public static Client user(ArrayList<Client> agence) {
+		Client user = null;
+		String id;
+		Scanner in =  new Scanner(System.in);
+		do {
+			System.out.println("Entrez le numero ID du client ou prospect: ");		
+			id = in.nextLine();
+		}while( id.matches("([A-Z]{2}[0-9]{6}") );
+		for(Client a : agence) {
+			if(a.getIdClient().equalsIgnoreCase(id)) {
+				user = a;
+				break;
+			}
+		}		
+		return user;
 		
 		
 		
 	}
-
+		
+		
 }
+
+

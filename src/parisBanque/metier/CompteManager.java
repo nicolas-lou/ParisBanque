@@ -7,11 +7,11 @@ public class CompteManager {
 	
 	public static Compte creerCompte() {
 		Compte account = new Compte();
-		account.setCodeAgence(checkCodeAgence());
-		account.setIdCompte(checkIdCompte());
-		account.setOverdraft(checkDecouvert());
-		account.setSolde(checkSolde());
-		account.setUser(checkUser());		
+		account.setCodeAgence(Checking.codeAgence());
+		account.setIdCompte(Checking.idCompte());
+		account.setOverdraft(Checking.decouvert());
+		account.setSolde(Checking.solde());
+		account.setUser(Checking.user(new Agence().getClients()));		
 		return account;
 	}
 	

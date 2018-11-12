@@ -1,7 +1,7 @@
 package parisBanque.beans;
 
 public class Compte {
-	int idCompte;
+	String idCompte;
 	int codeAgence;
 	Client user ;
 	double solde;
@@ -10,10 +10,10 @@ public class Compte {
 	public Compte() {
 		super();
 	}
-	public int getIdCompte() {
+	public String getIdCompte() {
 		return idCompte;
 	}
-	public void setIdCompte(int idCompte) {
+	public void setIdCompte(String idCompte) {
 		this.idCompte = idCompte;
 	}
 	public int getCodeAgence() {
@@ -40,11 +40,14 @@ public class Compte {
 	public void setOverdraft(boolean overdraft) {
 		this.overdraft = overdraft;
 	}
+
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idCompte;
+		result = prime * result + ((idCompte == null) ? 0 : idCompte.hashCode());
 		return result;
 	}
 	@Override
@@ -56,7 +59,10 @@ public class Compte {
 		if (getClass() != obj.getClass())
 			return false;
 		Compte other = (Compte) obj;
-		if (idCompte != other.idCompte)
+		if (idCompte == null) {
+			if (other.idCompte != null)
+				return false;
+		} else if (!idCompte.equals(other.idCompte))
 			return false;
 		return true;
 	}

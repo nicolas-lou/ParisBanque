@@ -10,8 +10,8 @@ public class ClientManager {
 		cli.setIdClient(Checking.idClient());
 		cli.setNom(Checking.nom());
 		cli.setPrenom(Checking.prenom());
-		cli.setEmail(Checking.email());
-		
+		cli.setEmail(Checking.email());		
+		return cli;	
 	}
 
 }
