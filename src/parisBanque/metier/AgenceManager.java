@@ -8,7 +8,7 @@ public class AgenceManager {
 	
 	public static Agence creerAgence() {
 		Agence adrAg = new Agence();
-		String validation ="";
+		String validation ="O";
 		do {
 			adrAg.setAdresseAgence( AdresseManager.creerAdresse() );
 			adrAg.setCodeAgence(Checking.codeAgence());
@@ -17,7 +17,7 @@ public class AgenceManager {
 			System.out.println("Valider les informations ? O/N");
 			Scanner in =  new Scanner(System.in);
 			validation = in.nextLine();			
-		}while(validation == "N");	
+		}while(validation.equalsIgnoreCase("N"));	
 		return adrAg;	
 	}
 	

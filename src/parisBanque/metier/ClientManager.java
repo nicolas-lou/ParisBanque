@@ -21,6 +21,7 @@ public class ClientManager {
 		for(Agence a : Parisbanque.getAgences()) {
 			if(a.equals(choixAgence)) {
 				a.getClients().add(a.getClients().size(), creerClient());
+				
 				break;
 			}
 		}	

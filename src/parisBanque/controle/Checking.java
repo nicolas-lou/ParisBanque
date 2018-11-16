@@ -21,12 +21,12 @@ public class Checking {
 	}
 	
 	public static String rue() {
-		Scanner in =  new Scanner(System.in);
+		Scanner keyb =  new Scanner(System.in);
 		String rue= "";
 		do {
 			System.out.println("Nom de rue: ");
-			rue = in.nextLine();
-		}while( !rue.matches("[a-zA-Z]+") );		
+			rue = keyb.nextLine();
+		}while( !rue.matches("[a-zA-Z]{1,20}") );		
 		return rue;
 	}
 	
