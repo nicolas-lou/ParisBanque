@@ -40,10 +40,10 @@ public class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public ArrayList getListeComptes() {
+	public ArrayList<Compte> getListeComptes() {
 		return listeComptes;
 	}
-	public void setListeComptes(ArrayList listeComptes) {
+	public void setListeComptes(ArrayList<Compte> listeComptes) {
 		this.listeComptes = listeComptes;
 	}
 
@@ -77,6 +77,14 @@ public class Client {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
+				+ ", listeComptes=" + listeComptes + "]";
+	}
+	
+	
 	
 	
 	

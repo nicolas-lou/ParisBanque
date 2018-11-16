@@ -10,15 +10,14 @@ public class Checking {
 	
 	// début checking AdesseManager
 	
-	public static int adrNum() {
+	public static String adrNum() {
 		Scanner in =  new Scanner(System.in);
 		String numString= "";
 		do {
 			System.out.println("Numéro de rue: ");
 			numString = in.nextLine();
-		}while( numString.matches("([1-9]?[0-9]?[0-9])") );
-		int numInt = Integer.parseInt(numString);
-		return numInt;
+		}while( !numString.matches("([1-9]?[0-9]?[0-9])") );		
+		return numString;
 	}
 	
 	public static String rue() {
@@ -27,7 +26,7 @@ public class Checking {
 		do {
 			System.out.println("Nom de rue: ");
 			rue = in.nextLine();
-		}while( rue.matches("[a-zA-Z]+") );		
+		}while( !rue.matches("[a-zA-Z]+") );		
 		return rue;
 	}
 	
@@ -37,7 +36,7 @@ public class Checking {
 		do {
 			System.out.println("Nom de rue: ");
 			ville = in.nextLine();
-		}while( ville.matches("[a-zA-Z]+") );		
+		}while( !ville.matches("[a-zA-Z]+") );		
 		return ville;
 	}
 	public static int zip() {
@@ -46,7 +45,7 @@ public class Checking {
 		do {
 			System.out.println("Code postal: ");
 			zip = in.nextLine();
-		}while( zip.matches("[0-9]{5}") ) ;
+		}while( !zip.matches("[0-9]{5}") ) ;
 		int zipInt = Integer.parseInt(zip);
 		return zipInt;
 	}
@@ -54,15 +53,14 @@ public class Checking {
 	// fin checking AdresseManager
 	// début checking AgenceManager
 	
-	public static int codeAgence() {
-		Scanner in =  new Scanner(System.in);
+	public static String codeAgence() {
+		Scanner keyb =  new Scanner(System.in);
 		String code= "";
 		do {
 			System.out.println("Code Agence: ");
-			code = in.nextLine();
-		}while( code.matches("([0-9][0-9][0-9])") );
-		int codeInt = Integer.parseInt(code);
-		return codeInt;	
+			code = keyb.nextLine();
+		}while( !code.matches("([0-9][0-9][0-9])") );		
+		return code;	
 	}
 	
 	public static String nom() {
@@ -71,9 +69,20 @@ public class Checking {
 		do {
 			System.out.println("Nom : ");
 			nom = in.nextLine();
-		}while( nom.matches("[a-zA-Z]+") );		
+		}while( !nom.matches("[a-zA-Z]+") );		
 		return nom;
 	}
+	
+	public static Agence trouverAgence( String agenceCherchee, Siege Parisbanque) {
+		Agence resultat = null;				
+		for(Agence a : Parisbanque.getAgences()) {
+			if(a.getCodeAgence().equalsIgnoreCase(agenceCherchee)) {
+				return a;				
+				}	
+			}
+		return resultat;	
+	}
+	
 	// fin checking AgenceManager
 	// début checking ClientManager
 	
@@ -83,7 +92,7 @@ public class Checking {
 		do {
 			System.out.println("ID client: ");
 			idClient = in.nextLine();
-		}while( idClient.matches("([A-Z]{2}[0-9]{6}") );		
+		}while( !idClient.matches("([A-Z]{2}[0-9]{6})") );		
 		return idClient;		
 	}
 	
@@ -93,7 +102,7 @@ public class Checking {
 		do {
 			System.out.println("Prenom: ");
 			prenom = in.nextLine();
-		}while( prenom.matches("[a-zA-Z]+") );		
+		}while( !prenom.matches("[a-zA-Z]+") );		
 		return prenom;
 	}
 	
@@ -103,8 +112,27 @@ public class Checking {
 		do {
 			System.out.println("E-mail: ");
 			email = in.nextLine();
-		}while( email.matches("[a-zA-Z]+") );		
+		}while( !email.matches("[a-z]+") );		
 		return email;
+	}
+	
+	public static Client trouverClient( String clientCherche, Agence agence) {
+		Client resultat = null;				
+		for(Client a : agence.getClients()) {
+			if(a.getIdClient().equalsIgnoreCase(clientCherche)) {
+				resultat = a;				
+				}	
+			}
+		return resultat;	
+	}
+	
+	public static boolean verifMaxCompte (Client cli) {
+		boolean reponse = false;
+		if(cli.getListeComptes().size()<3) {
+			reponse = true;
+		}
+		
+		return reponse;
 	}
 	
 	// fin checking ClientManager
@@ -116,7 +144,7 @@ public class Checking {
 		do {
 			System.out.println("ID du compte: ");
 			idCompte = in.nextLine();
-		}while( idCompte.matches("[0-9]{11}") );		
+		}while( !idCompte.matches("[0-9]{11}") );		
 		return idCompte;
 	}
 	
@@ -127,7 +155,7 @@ public class Checking {
 		do {
 			System.out.println("Ligne de credit ? (O/N): ");
 			reponse = in.nextLine();
-		}while( reponse.matches("O|N") );
+		}while( !reponse.matches("O|N") );
 		if(reponse.equalsIgnoreCase("O")) {
 			decouvert = true;
 		}
@@ -138,14 +166,14 @@ public class Checking {
 		Scanner in =  new Scanner(System.in);
 		String solde= "";
 		do {
-			System.out.println("Code Agence: ");
+			System.out.println("Solde du compte ?: ");
 			solde = in.nextLine();
-		}while( solde.matches("(([0-9]+)\\.{0,1}[0-9]{0,3)") );
+		}while( !solde.matches("([0-9]+)\\.{0,1}[0-9]{0,3}") );
 		int soldeDouble = Integer.parseInt(solde);
 		return soldeDouble;	
 	}
 	
-	public static String user(int idAgence) {
+	public static String user(String idAgence) {
 		ArrayList<Client> agence =null;
 		
 		for(Agence ag : Siege.agences ) {
@@ -159,7 +187,7 @@ public class Checking {
 		do {
 			System.out.println("Entrez le numero ID du client ou prospect: ");		
 			id = in.nextLine();
-		}while( id.matches("([A-Z]{2}[0-9]{6}") );
+		}while( !id.matches("([A-Z]{2}[0-9]{6}") );
 		for(Client a : agence) {
 			if(a.getIdClient().equalsIgnoreCase(id)) {
 				id = a.getIdClient();
@@ -169,9 +197,26 @@ public class Checking {
 		return id;	
 	}
 	
+	public static Compte trouverCompte (String idCompte, Agence ag) {
+		Compte resultat = null;
+		for(Client a : ag.getClients()) {
+			for(Compte c : a.getListeComptes()) {
+				if(c.getIdCompte().equalsIgnoreCase(idCompte)) {
+					resultat = c;
+					break;
+				}
+			}
+		}
+		return resultat;
+		}
+		
+		
+		
+	}
+	
 	// fin checking compte
 		
 		
-}
+
 
 

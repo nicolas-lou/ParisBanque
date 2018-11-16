@@ -2,8 +2,8 @@ package parisBanque.beans;
 
 public class Compte {
 	String idCompte;
-	int codeAgence;
-	String user ;
+	String codeAgence;
+	Client user ;
 	double solde;
 	boolean overdraft;
 	
@@ -16,16 +16,16 @@ public class Compte {
 	public void setIdCompte(String idCompte) {
 		this.idCompte = idCompte;
 	}
-	public int getCodeAgence() {
+	public String getCodeAgence() {
 		return codeAgence;
 	}
-	public void setCodeAgence(int codeAgence) {
+	public void setCodeAgence(String codeAgence) {
 		this.codeAgence = codeAgence;
 	}
-	public String getUser() {
+	public Client getUser() {
 		return user;
 	}
-	public void setUser(String user) {
+	public void setUser(Client user) {
 		this.user = user;
 	}
 	public double getSolde() {
@@ -68,8 +68,10 @@ public class Compte {
 	}
 	@Override
 	public String toString() {
-		return "Compte [idCompte=" + idCompte + ", codeAgence=" + codeAgence + "]";
+		return "Compte [idCompte=" + idCompte + ", codeAgence=" + codeAgence + ", solde=" + solde
+				+ ", overdraft=" + overdraft + "]";
 	}
+	
 	
 	
 	

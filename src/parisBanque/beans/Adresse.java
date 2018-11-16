@@ -1,7 +1,7 @@
 package parisBanque.beans;
 
 public class Adresse {
-	int numeroRue;
+	String numeroRue;
 	String rue;
 	String ville;
 	int zip;
@@ -16,11 +16,11 @@ public class Adresse {
 	}
 	
 	
-	public int getNumeroRue() {
+	public String getNumeroRue() {
 		return numeroRue;
 	}
-	public void setNumeroRue(int numeroRue) {
-		this.numeroRue = numeroRue;
+	public void setNumeroRue(String string) {
+		this.numeroRue = string;
 	}
 	public String getRue() {
 		return rue;

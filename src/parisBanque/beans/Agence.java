@@ -4,23 +4,20 @@ import java.util.ArrayList;
 
 public class Agence {
 	
-	private int codeAgence;
+	private String codeAgence;
 	private String nomAgence;
 	private Adresse adresseAgence;
 	private ArrayList<Client> clients = new ArrayList<Client>();
-	
-	
-	
 	
 	
 	public Agence() {
 		super();
 	}
 	
-	public int getCodeAgence() {
+	public String getCodeAgence() {
 		return codeAgence;
 	}
-	public void setCodeAgence(int codeAgence) {
+	public void setCodeAgence(String codeAgence) {
 		this.codeAgence = codeAgence;
 	}
 	public String getNomAgence() {
@@ -40,6 +37,12 @@ public class Agence {
 	}
 	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
+	}
+
+	@Override
+	public String toString() {
+		return "Agence [codeAgence=" + codeAgence + ", nomAgence=" + nomAgence + ", adresseAgence=" + adresseAgence
+				+ ", clients=" + clients + "]";
 	}
 	
 	

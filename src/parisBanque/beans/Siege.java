@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class Siege {
 	
-	public static ArrayList<Agence> agences = new ArrayList<Agence>();;
+	public static ArrayList<Agence> agences = new ArrayList<Agence>();
+	
 	
 	
 	public Siege() {
