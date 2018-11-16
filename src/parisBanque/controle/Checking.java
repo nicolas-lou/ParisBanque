@@ -74,12 +74,18 @@ public class Checking {
 	}
 	
 	public static Agence trouverAgence( String agenceCherchee, Siege Parisbanque) {
-		Agence resultat = null;				
+		Agence resultat = null;	
+		boolean trouve = false;
 		for(Agence a : Parisbanque.getAgences()) {
 			if(a.getCodeAgence().equalsIgnoreCase(agenceCherchee)) {
+				trouve = true;
 				return a;				
 				}	
 			}
+		if(!trouve) {
+			System.out.println("Cette agence n'existe pas");
+		}
+		
 		return resultat;	
 	}
 	
@@ -117,12 +123,17 @@ public class Checking {
 	}
 	
 	public static Client trouverClient( String clientCherche, Agence agence) {
-		Client resultat = null;				
+		Client resultat = null;
+		boolean trouve =false;
 		for(Client a : agence.getClients()) {
 			if(a.getIdClient().equalsIgnoreCase(clientCherche)) {
-				resultat = a;				
+				resultat = a;
+				trouve = true;
 				}	
 			}
+		if(!trouve) {
+			System.out.println("Ce client n'existe pas dans cette agence.");			
+		}
 		return resultat;	
 	}
 	

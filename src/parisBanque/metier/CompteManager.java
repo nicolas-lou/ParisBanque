@@ -17,14 +17,22 @@ public class CompteManager {
 	
 	public static void ajouterCompte(Siege Parisbanque) {
 		Agence a = Checking.trouverAgence(Checking.codeAgence(), Parisbanque);
-		Client cli = Checking.trouverClient(Checking.idClient(), a);
-		if(Checking.verifMaxCompte(cli)) {
-			cli.getListeComptes().add(creerCompte(cli));
-			System.out.println("Compte ajouté au client " + cli.getIdClient());
-		}else {
-			System.out.println("Ce client ne peut avoir plus de 3 comptes bancaises");
-		}	
+		if(a!=null) {
+			Client cli = Checking.trouverClient(Checking.idClient(), a);
+			if(cli!=null) {
+				if(Checking.verifMaxCompte(cli)) {
+					cli.getListeComptes().add(creerCompte(cli));
+					System.out.println("Compte ajouté au client " + cli.getIdClient());
+				}else {
+					System.out.println("Ce client ne peut avoir plus de 3 comptes bancaises");
+				}
+			}else {
+				System.out.println("Abandon création du compte");
+			}
+		}			
 	}
+		
+		
 	
 	
 	

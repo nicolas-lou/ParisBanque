@@ -17,13 +17,18 @@ public class ClientManager {
 	}
 	
 	public static void ajouterClient(Siege Parisbanque) {
-		Agence choixAgence = Checking.trouverAgence(Checking.codeAgence(),Parisbanque);		
+		Agence choixAgence = Checking.trouverAgence(Checking.codeAgence(),Parisbanque);	
+		boolean trouve = false;
 		for(Agence a : Parisbanque.getAgences()) {
 			if(a.equals(choixAgence)) {
 				a.getClients().add(a.getClients().size(), creerClient());
-				
+				System.out.println("Client ajouté dans l'agence " + a.getCodeAgence() );
+				trouve = true;
 				break;
 			}
+		if(!trouve) {
+			System.out.println("Cette agence n'existe pas.");
+		}
 		}	
 	}
 	

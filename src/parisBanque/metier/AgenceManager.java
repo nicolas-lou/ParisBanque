@@ -22,7 +22,8 @@ public class AgenceManager {
 	}
 	
 	public static void ajouterAgence(Siege ParisBanque) {
-		ParisBanque.getAgences().add(ParisBanque.getAgences().size(), creerAgence());		
+		ParisBanque.getAgences().add(ParisBanque.getAgences().size(), creerAgence());
+		System.out.println("Agence ajoutée");
 		
 	}
 	
@@ -44,11 +45,20 @@ public class AgenceManager {
 	public static void afficherComptesClient(Siege Parisbanque) {
 		System.out.println("De quelle agence dépend le compte ?");
 		Agence ag = Checking.trouverAgence(Checking.codeAgence(),Parisbanque );
-		System.out.println("Quel est le client ?");
-		Client cli = Checking.trouverClient(Checking.idClient(), ag);
-		System.out.println("coucou1");
-		System.out.println(cli.getListeComptes().toString());
-		System.out.println("coucou1");
+		if(ag!=null) {
+			System.out.println("Quel est le client ?");
+			Client cli = Checking.trouverClient(Checking.idClient(), ag);
+			if(cli!=null) {
+				System.out.println(cli.getListeComptes().toString());
+			}else {
+				System.out.println("Retour au menu");
+			}		
+		}else {
+			System.out.println("Retour au menu");
+		}
+		
+		
+		
 
 		
 	}
